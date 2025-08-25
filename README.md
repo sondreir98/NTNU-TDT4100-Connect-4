@@ -4,30 +4,6 @@ This is a Java-based Connect4 application built using **JavaFX** and **Maven**. 
 
 ---
 
-## Project Structure
-
-prosjekt-base:
-  src:
-    main:
-      java:
-        Prosjekt:
-          - Connect4App.java
-          - Connect4Controller.java
-          - Connect4Model.java
-          - "... (other helper classes)"
-      resources:
-        exampleproject:
-          prosjekt:
-            - Connect4.fxml
-    test:
-      java:
-        exampleproject: []
-  pom.xml: ""
-  README.md: ""
-
-
----
-
 ## Features
 
 - Graphical interface using **JavaFX**  
