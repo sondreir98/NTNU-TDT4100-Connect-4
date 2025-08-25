@@ -158,7 +158,7 @@ public class Connect4Controller {
         Circle clickedCircle = (Circle) gridPane.lookup("#" + circleId); // Find the Circle object
 
         if (connect4Game.getCurrentPlayer() == 'X') {
-            clickedCircle.setFill(Color.BLACK);
+            clickedCircle.setFill(Color.YELLOW);
         } else {
             clickedCircle.setFill(Color.RED);
         }
