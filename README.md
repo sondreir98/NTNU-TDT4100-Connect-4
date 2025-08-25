@@ -39,7 +39,7 @@ prosjekt-base:
 
 ## Prerequisites
 
-- **Java 17** or higher installed  
+- **Java 17** 
 - **Maven** installed  
 - Internet connection for Maven to download dependencies (JavaFX, JUnit)
 
