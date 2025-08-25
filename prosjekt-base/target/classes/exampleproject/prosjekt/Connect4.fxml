@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #0066ff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Prosjekt.Connect4Controller">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem fx:id="saveAs" mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefWidth="613.0" style="-fx-background-color: #3A5F9F;" VBox.vgrow="ALWAYS">
+      <children>
+            <GridPane fx:id="gridPane" layoutX="1.0" layoutY="121.0" prefHeight="375.0" prefWidth="803.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Circle id="Circle15" fx:id="Circle15" fill="#f2f4f7" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle00" fx:id="Circle00" fill="#f2f4f7" layoutX="180.0" layoutY="201.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle01" fx:id="Circle01" fill="#f2f4f7" layoutX="180.0" layoutY="201.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle03" fx:id="Circle03" fill="#f2f4f7" layoutX="30.0" layoutY="75.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle04" fx:id="Circle04" fill="#f2f4f7" layoutX="30.0" layoutY="117.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle10" fx:id="Circle10" fill="#f2f4f7" layoutX="30.0" layoutY="159.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle20" fx:id="Circle20" fill="#f2f4f7" layoutX="145.0" layoutY="32.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle30" fx:id="Circle30" fill="#f2f4f7" layoutX="260.0" layoutY="32.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle40" fx:id="Circle40" fill="#f2f4f7" layoutX="375.0" layoutY="32.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle50" fx:id="Circle50" fill="#f2f4f7" layoutX="490.0" layoutY="32.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle60" fx:id="Circle60" fill="#f2f4f7" layoutX="65.0" layoutY="32.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle11" fx:id="Circle11" fill="#f2f4f7" layoutX="30.0" layoutY="75.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle21" fx:id="Circle21" fill="#f2f4f7" layoutX="260.0" layoutY="29.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle12" fx:id="Circle12" fill="#f2f4f7" layoutX="145.0" layoutY="66.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle13" fx:id="Circle13" fill="#f2f4f7" layoutX="145.0" layoutY="66.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle14" fx:id="Circle14" fill="#f2f4f7" layoutX="180.0" layoutY="210.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle24" fx:id="Circle24" fill="#f2f4f7" layoutX="142.0" layoutY="174.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle23" fx:id="Circle23" fill="#f2f4f7" layoutX="257.0" layoutY="174.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle22" fx:id="Circle22" fill="#f2f4f7" layoutX="257.0" layoutY="138.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle02" fx:id="Circle02" fill="#f2f4f7" layoutX="257.0" layoutY="102.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle05" fx:id="Circle05" fill="#f2f4f7" layoutX="257.0" layoutY="174.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle25" fx:id="Circle25" fill="#f2f4f7" layoutX="257.0" layoutY="174.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle32" fx:id="Circle32" fill="#f2f4f7" layoutX="257.0" layoutY="246.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle42" fx:id="Circle42" fill="#f2f4f7" layoutX="257.0" layoutY="102.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle41" fx:id="Circle41" fill="#f2f4f7" layoutX="27.0" layoutY="102.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle31" fx:id="Circle31" fill="#f2f4f7" layoutX="372.0" layoutY="102.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle33" fx:id="Circle33" fill="#f2f4f7" layoutX="372.0" layoutY="102.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle34" fx:id="Circle34" fill="#f2f4f7" layoutX="27.0" layoutY="102.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle35" fx:id="Circle35" fill="#f2f4f7" layoutX="372.0" layoutY="174.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle43" fx:id="Circle43" fill="#f2f4f7" layoutX="372.0" layoutY="210.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle44" fx:id="Circle44" fill="#f2f4f7" layoutX="487.0" layoutY="138.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle45" fx:id="Circle45" fill="#f2f4f7" layoutX="487.0" layoutY="174.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle55" fx:id="Circle55" fill="#f2f4f7" layoutX="487.0" layoutY="210.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle52" fx:id="Circle52" fill="#f2f4f7" layoutX="487.0" layoutY="102.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle51" fx:id="Circle51" fill="#f2f4f7" layoutX="487.0" layoutY="102.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle53" fx:id="Circle53" fill="#f2f4f7" layoutX="602.0" layoutY="102.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle54" fx:id="Circle54" fill="#f2f4f7" layoutX="602.0" layoutY="174.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle62" fx:id="Circle62" fill="#f2f4f7" layoutX="602.0" layoutY="246.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle63" fx:id="Circle63" fill="#f2f4f7" layoutX="602.0" layoutY="102.0" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle61" fx:id="Circle61" fill="#f2f4f7" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle64" fx:id="Circle64" fill="#f2f4f7" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+                  <Circle id="Circle65" fx:id="Circle65" fill="#f2f4f7" onMouseClicked="#HandleCircleClicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="35.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Circle>
+               </children>
+               <effect>
+                  <Glow level="0.17" />
+               </effect>
+            </GridPane>
+      </children>
+    </AnchorPane>
+      <Button fx:id="resetButton" mnemonicParsing="false" onMouseClicked="#resetButton" prefHeight="25.0" prefWidth="819.0" text="Reset Game Statistics" />
+  </children>
+</VBox>
