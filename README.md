@@ -52,21 +52,19 @@ prosjekt-base:
 ```bash
 git clone https://github.com/sondreir98/NTNU-TDT4100-Connect-4.git
 cd NTNU-TDT4100-Connect-4/prosjekt-base
+```
 
 build:
-  description: "Build the project"
   command: "mvn clean compile"
 
 run:
-  description: "Run the application"
   methods:
-    - name: "Using Maven Exec Plugin"
+Using Maven Exec Plugin
       command: "mvn exec:java -Dexec.mainClass=\"Prosjekt.Connect4App\""
-    - name: "Using JavaFX Maven Plugin (recommended)"
+Using JavaFX Maven Plugin (recommended)
       command: "mvn clean javafx:run"
 
 tests:
-  description: "Running Tests"
   note: "Unit tests are written using JUnit 5"
   command: "mvn test"
 
