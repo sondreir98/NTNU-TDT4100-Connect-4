@@ -23,7 +23,7 @@ This is a Java-based Connect4 application built using **JavaFX** and **Maven**. 
 
 ## How to Build and Run
 
-1. **Clone the repository**:
+**Clone the repository**:
 
 ```bash
 git clone https://github.com/sondreir98/NTNU-TDT4100-Connect-4.git
