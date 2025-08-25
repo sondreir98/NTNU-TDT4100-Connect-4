@@ -52,7 +52,6 @@ prosjekt-base:
 ```bash
 git clone https://github.com/sondreir98/NTNU-TDT4100-Connect-4.git
 cd NTNU-TDT4100-Connect-4/prosjekt-base
-```
 
 build:
   command: "mvn clean compile"
